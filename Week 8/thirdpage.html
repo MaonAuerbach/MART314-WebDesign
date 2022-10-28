@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title> My Third Page</title>
+    </head>
+<script>
+    function checkAnswer()
+    {
+        var firstName=document.getElementById("fName").value;
+        if(firstName== "")
+        {
+            document.getElementById("fName").style.backgroundColor = "red";
+            document.getElementById("fName").focus();
+        }
+        var firstName=document.getElementById("lName").value;
+        if(firstName== "")
+        {
+            document.getElementById("lName").style.backgroundColor = "red";
+            document.getElementById("lName").focus();
+        }
+        var firstName=document.getElementById("Email").value;
+        if(firstName== "")
+        {
+            document.getElementById("Email").style.backgroundColor = "red";
+            document.getElementById("Email").focus();
+        }
+    }
+</script><br><br>
+<script>
+   function checkBox()
+   {
+    var yesButton=document.getElementById("yes").value;
+    if(document.getElementById("yes").checked==false)
+    {
+       window.alert("Terms and Agreements are Requiered")
+    }
+    var noButton=document.getElementById("no").value;
+    if(document.getElementById("no").checked==true)
+    {
+        window.alert("Terms and Agreements are Requiered")
+    }
+   }
+</script>
+
+<body>
+    <h2>Contact Us</h2>
+
+<form action="nextPage.html" type="Post"></form>
+    First Name: <input type="text" id="fName"><br>
+    Last Name: <input type="text" id="lName"><br>
+    Email: <input type="text" id="Email"> <span id="yesCheckbox"><span id="noCheckbox"></span><br><br>
+<h3>Accept Terms?</h3>
+    <input type="checkbox" id="yes" value="yes">Yes<br>
+    <input type="checkbox" id="no" value="no">No<br><br>
+</body>
+
+
+<td colspan="2"><button id="btnSubmit" onClick="checkAnswer(); checkBox();">Submit</button></td><br><br>
+<a href="secondpage.html">Back to Second Page</a>
+</html>

@@ -25,7 +25,7 @@ function setup()
 {
     createCanvas(500, 600);
     
-    for (var i=0; i < 5; i++) {
+    for (var i=0; i < 9; i++) {
         obstacleXspeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
         obstacleYspeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
         obstacleXs[i]= getRandomNumber(500)
@@ -35,6 +35,10 @@ function setup()
 
     createCharacter(200,350)
 }
+
+function getRandomNumber(number){
+    return Math.floor(Math.random(1, number)) + 1;
+ }
 
 function draw()
 {

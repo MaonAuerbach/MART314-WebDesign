@@ -1,11 +1,36 @@
+var mouseShapeX;
+var mouseShapeY;
+
+var obstacleX = 500;
+var obstacleY = 50;
+
+var obstacleXs = [];
+var obstacleYs = [];
+var diameters = [];
+
+var obstacleXspeeds = [];
+var obstacleYspeeds = [];
+
+
 function setup()
-{
+
     createCanvas(1000,1000)
+
+    for (var i=0; i < 50; i++) {
+        obstacleXspeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        obstacleYspeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        obstacleXs[i]= getRandomNumber(500)
+        obstacleYs[i]= getRandomNumber(600)
+        diameters[i]= getRandomNumber(30)
 }
 
 function draw()
 {
+    clickedShape();
+
     background (0,125,200)
+
+    createObstacles();
 
     //rectangle stump
     fill (170,75,30)
@@ -77,7 +102,48 @@ function draw()
 
     fill(0,255,0)
     circle(530,380,30 )
+}
 
-
+function createObstacles()
+{
+    fill(255,255,255);
+    for (var i=0; i < obstacleXs.length; i++) {
+        circle(obstacleXs[i], obstacleYs[i], diameters[i]);
+        obstacle1Xspeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        obstacle1Yspeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+   
+      
+       obstacleXs[i] += obstacleXspeeds[i];
+       obstacleYs[i] += obstacleYspeeds[i];
+       
+       if(obstacleXs[i] > width)
+       {
+           obstacleXs[i] = 0;
+       }
+       if(obstacleXs[i] < 0)
+       {
+           obstacleXs[i] = width;
+       }
+       if(obstacleYs[i] > height)
+       {
+           obstacleYs[i] = 0;
+       }
+       if(obstacleYs[i] < 0)
+       {
+           obstacleYs[i] = height;
+       }
+    }
 
 }
+
+function clickedShape()
+{
+    fill(255,0,0);
+    rect(mouseShapeX, mouseShapeY, 30,30);
+}
+function mouseClicked()
+{
+    mouseShapeX = mouseX;
+    mouseShapeY = mouseY;
+}
+

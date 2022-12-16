@@ -1,5 +1,7 @@
-var mouseShapeX;
-var mouseShapeY;
+
+
+var mousex = 250;
+var mousey = 770;
 
 var obstacleX = 500;
 var obstacleY = 50;
@@ -12,21 +14,37 @@ var obstacleXspeeds = [];
 var obstacleYspeeds = [];
 
 
-function setup()
+function setup() {
 
-    createCanvas(1000,1000)
-
-    for (var i=0; i < 50; i++) {
-        obstacleXspeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-        obstacleYspeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-        obstacleXs[i]= getRandomNumber(500)
-        obstacleYs[i]= getRandomNumber(600)
-        diameters[i]= getRandomNumber(30)
-}
-
+    createCanvas(1000, 1000);
+  
+   
+  
+    for (var i = 0; i < 50; i++) {
+  
+      obstacleXspeeds[i] = Math.floor(
+  
+        Math.random() * Math.floor(Math.random() * 5) + 1
+  
+      );
+  
+      obstacleYspeeds[i] = Math.floor(
+  
+        Math.random() * Math.floor(Math.random() * 5) + 1
+  
+      );
+  
+      obstacleXs[i] = getRandomNumber(500);
+  
+      obstacleYs[i] = getRandomNumber(600);
+  
+      diameters[i] = getRandomNumber(30);
+  
+    }
+  
+  }
 function draw()
 {
-    clickedShape();
 
     background (0,125,200)
 
@@ -102,6 +120,9 @@ function draw()
 
     fill(0,255,0)
     circle(530,380,30 )
+
+    fill(255,0,0);
+    rect(mousex, mousey, 50,50);
 }
 
 function createObstacles()
@@ -136,14 +157,13 @@ function createObstacles()
 
 }
 
-function clickedShape()
-{
-    fill(255,0,0);
-    rect(mouseShapeX, mouseShapeY, 30,30);
-}
+
 function mouseClicked()
 {
-    mouseShapeX = mouseX;
-    mouseShapeY = mouseY;
+    mousex = mouseX;
+    mousey = mouseY;
 }
 
+function getRandomNumber(number) {
+    return Math.floor(Math.random() * number) + 10;
+}
